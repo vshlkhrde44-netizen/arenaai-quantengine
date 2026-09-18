@@ -1,0 +1,21 @@
+{
+  "system": "Antigravity QuantEngine",
+  "version": "2.0.0",
+  "live_trading": false,
+  "paper_trading": true,
+  "evaluated_at": "2026-09-17T21:51:43.731266+00:00",
+  "domains": {
+    "software_safety": "PASS",
+    "software_security": "PASS",
+    "data_pipeline": "PASS",
+    "dataset": "PASS",
+    "research": "PASS",
+    "strategy": "PASS",
+    "paper_execution": "UNVERIFIED",
+    "accounting": "PASS",
+    "installation": "PASS"
+  },
+  "overall": "PARTIAL_CERTIFIED_UNVERIFIED_GATES",
+  "config_hash": "052485751566dbbd4f1e7ef7e17224cf79f9822e04318805ff5074bc102b94fa",
+  "evidence_hash": "e068c89be9ef4a2f21eafedc36c343608db3c96c14f7bafc24bddbb2b66a56f0"
+}
