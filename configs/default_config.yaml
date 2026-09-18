@@ -1,0 +1,62 @@
+# Antigravity QuantEngine System Configuration
+# STRICT PAPER TRADING ENFORCEMENT — NO LIVE TRADING SUPPORTED
+
+system:
+  app_name: "Antigravity QuantEngine"
+  version: "1.0.0"
+  runtime_mode: "PAPER_TRADING" # Options: DEVELOPMENT, TEST, RESEARCH, DATA_CAPTURE, PAPER_TRADING
+  paper_only: true
+  live_orders_enabled: false
+  is_production_ready: false
+  host: "127.0.0.1" # P0-18: Strict 127.0.0.1 default binding
+  port: 8000
+  log_level: "INFO"
+
+security:
+  credential_storage: "ENCRYPTED_VAULT" # AES-256-GCM OS/DPAPI backed derivation
+  vault_path: "data/vault/credentials.enc"
+  mask_secrets_in_logs: true
+  allow_remote_access: false
+  operator_session_token_required: true
+
+database:
+  sqlite_path: "data/quantengine.db"
+  duckdb_path: "data/analytics.duckdb"
+  raw_data_dir: "data/raw"
+  datasets_dir: "data/datasets"
+  reports_dir: "data/reports"
+  manifests_dir: "data/manifests"
+
+market_data:
+  default_exchange: "coinbase"
+  auto_connect_on_startup: false # Section 61: Initial state is DISCONNECTED
+  default_symbols:
+    - "BTC-USD"
+    - "ETH-USD"
+    - "SOL-USD"
+  queue_max_size: 50000
+  tamper_chain_enabled: true
+  stale_data_threshold_seconds: 5.0
+  reconnect_delay_seconds: 2.0
+  max_reconnect_attempts: 10
+
+risk:
+  max_position_size_usd: 50000.0
+  max_order_notional_usd: 10000.0
+  max_daily_loss_usd: 2500.0
+  max_portfolio_exposure_usd: 100000.0
+  max_concurrent_positions: 5
+  cooldown_period_seconds: 30
+  stop_loss_default_pct: 0.02
+  emergency_stop_active: false
+  fail_closed_on_unknown_risk: true
+
+paper_execution:
+  venue: "coinbase_sandbox"
+  paper_endpoint: "https://api-public.sandbox.exchange.coinbase.com"
+  paper_ws_endpoint: "wss://ws-feed.exchange.coinbase.com"
+  reconciliation_interval_seconds: 15
+  auto_cancel_on_disconnect: true
+  approved_endpoints:
+    - "https://api-public.sandbox.exchange.coinbase.com"
+    - "https://paper-api.alpaca.markets"
