@@ -1,0 +1,25 @@
+{
+  "manifest_id": "man_ds_coinbase_BTC_USD_1h_c5c5b6",
+  "dataset_id": "ds_coinbase_BTC_USD_1h_c5c5b6",
+  "source_venue": "coinbase",
+  "symbol": "BTC-USD",
+  "timeframe": "1h",
+  "channels": [
+    "ticker",
+    "trades",
+    "candles"
+  ],
+  "start_time": "2026-09-03T07:00:00+00:00",
+  "end_time": "2026-09-17T20:00:00+00:00",
+  "creation_time": "2026-09-17T20:55:19.089508+00:00",
+  "software_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "raw_hash": "5a4ac7504f7c775c671964b10d0e1ffdb7b05606a62b2393b558feb101141775",
+  "normalized_hash": "5a4ac7504f7c775c671964b10d0e1ffdb7b05606a62b2393b558feb101141775",
+  "dataset_hash": "5a4ac7504f7c775c671964b10d0e1ffdb7b05606a62b2393b558feb101141775",
+  "transformation_hash": "e1198485509e92a870d99d8452e2ffde773300ba84f5b45b4be8f36774fce5c7",
+  "configuration_hash": "6d6e99f94e2f7feb5169f0c11b2b7e21d95c67b89d3666a59aceec210aadb198",
+  "strategy_hash": null,
+  "preregistration_hash": null,
+  "metadata": {}
+}

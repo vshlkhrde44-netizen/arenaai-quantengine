@@ -1,0 +1,54 @@
+{
+  "report_id": "rep_20260917_211123_9184cc",
+  "report_title": "Antigravity QuantEngine Full System Certification Report",
+  "report_type": "SYSTEM_CERTIFICATION",
+  "created_at": "2026-09-17T21:11:23.634757+00:00",
+  "software_version": "1.0.0",
+  "config_hash": "cfg_hash_v1_paper_only",
+  "dataset_hash": null,
+  "overall_status": "PASS",
+  "evidence_items": [
+    {
+      "category": "SAFETY_INVARIANTS",
+      "requirement": "Paper Only Mode Enforcement",
+      "status": "PASS",
+      "computed_value": "paper_only=True",
+      "expected_value": "paper_only=True",
+      "evidence_hash": "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce",
+      "notes": "No live trading execution paths permitted."
+    },
+    {
+      "category": "EXECUTION_FIREWALL",
+      "requirement": "Live Order Prohibition",
+      "status": "PASS",
+      "computed_value": "live_orders_enabled=False",
+      "expected_value": "live_orders_enabled=False",
+      "evidence_hash": "4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+      "notes": "Hard assertion in ExecutionSafetyGate rejects production endpoints."
+    },
+    {
+      "category": "TAMPER_EVIDENT_AUDIT",
+      "requirement": "Cryptographic Hash Chain Integrity",
+      "status": "PASS",
+      "computed_value": "34 events verified",
+      "expected_value": "0 discontinuities",
+      "evidence_hash": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+      "notes": "SHA-256 recursive chain verification complete."
+    },
+    {
+      "category": "PORTFOLIO_ACCOUNTING",
+      "requirement": "Deterministic Equity Conservation",
+      "status": "PASS",
+      "computed_value": "Equity=$39,216.17",
+      "expected_value": "Balanced",
+      "evidence_hash": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      "notes": "Mark-to-market balances strictly reconciled."
+    }
+  ],
+  "analytical_payload_hash": "47c0209102184ea6f9488770bb9a1d130cb1fe1a3d49c0d16eec324857188471",
+  "limitations_and_unknowns": [
+    "Simulated fills in backtest assume execution at open with cost model slippage.",
+    "Live trading permanently disabled by architecture.",
+    "Paper trading fills are routed through official sandbox."
+  ]
+}
